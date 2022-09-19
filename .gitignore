@@ -1,0 +1,13 @@
+/.idea
+/.vscode
+/dist
+/node_modules
+/lib
+__generated__/
+.DS_Store
+
+
+.env
+*.xlsx
+*.csv
+*.local
