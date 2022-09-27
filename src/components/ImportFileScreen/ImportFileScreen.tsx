@@ -1,6 +1,6 @@
 import React from 'react';
 
-const App = () => {
+const ImportFileScreen = () => {
   return (
     <div>
       <button type="button">Browse Files</button>
@@ -8,4 +8,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ImportFileScreen;
