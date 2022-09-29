@@ -18,6 +18,7 @@ const ImportFileScreen = () => {
     <div>
       <button type="button" onClick={handleInputButtonClick}>Browse Files</button>
       <input type="file" 
+        accept={'.xlsx,.xls'}
         style={{display:'none'}} 
         ref={fileInput}
         onChange={handleInputChange}
