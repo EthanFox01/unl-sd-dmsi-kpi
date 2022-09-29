@@ -7,14 +7,13 @@ const NEXT_DAY = 24 * 60 * 60 * 1000;
 
 const createNewSession = async (
   setSessionState: (value: ForceSessionData) => void,
-  setMessageState: (v: string) => void,
+  username: string,
+  password: string,
 ) => {
-  const { VITE_USERNAME: USERNAME, VITE_ORGID: ORGID, VITE_PASSWORD: PASSWORD } = import.meta.env;
-  if (!USERNAME || !ORGID || !PASSWORD) {
-    setMessageState('Missing config. Please consult README');
+  if (!username || !password) {
     return;
   }
-  const resp = await loginFetch(`${USERNAME}.${ORGID}`, PASSWORD);
+  const resp = await loginFetch(username, password);
   const loginData = (await resp.json()) as LoginType;
   const defaultBranch = loginData.data.login.InitialBranch;
   const sessionResp = await sessionFetch(defaultBranch);
@@ -24,7 +23,6 @@ const createNewSession = async (
 
   localStorage.setItem('session', JSON.stringify(forceSessionData));
   localStorage.setItem('sessionExpTime', `${tomorrow}`);
-
   setSessionState(forceSessionData);
 };
 

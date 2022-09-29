@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@wedgekit/button';
 
 const ImportFileScreen = () => {
   const [domain, setDomain] = React.useState('primary');
+  const fileInput = React.useRef(null);
+  const [selectedFile, setSelectedFile] = useState();
+  const [selectedFileName, setSelectedFileName] = useState();
+
+  const handleInputButtonClick = () => {
+    fileInput.current.click();
+  };
+
+  const handleInputChange = event => {
+    setSelectedFile(event.target.files[0]);
+    setSelectedFileName(event.target.files[0].name);
+  };
 
   return (
   <><h1 style={{
@@ -28,15 +40,21 @@ const ImportFileScreen = () => {
         
       }}>
       <Button
-        domain={domain}
-        onClick={() => setDomain(domain === 'primary' ? 'secondary' : 'primary')}
+        // domain={domain}
+        onClick={handleInputButtonClick}
       >
         Browse Files
       </Button>
+      <input type="file" 
+        style={{display:'none'}} 
+        ref={fileInput}
+        onChange={handleInputChange}
+      />
     </div>
     <div style={{
     fontSize: '100%',
     position: 'relative',  textAlign: 'center', bottom: 'auto'}}>(csv,tsv,xls,xlsx)</div>
+    <p>{selectedFileName}</p>
     </>
   );
 };
