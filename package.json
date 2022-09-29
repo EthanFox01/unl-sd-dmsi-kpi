@@ -11,6 +11,7 @@
     "dev": "wedgekit start --mode development --graphql-proxy https://develop.agility.dmsi.io/graphql"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "@wedgekit/button": "^3.0.0",
     "@wedgekit/illustrations": "^3.0.0",
     "@wedgekit/input": "^2.0.5",
