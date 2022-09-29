@@ -6,19 +6,26 @@ const ImportFileScreen = () => {
 
   return (
   <><h1 style={{
-    fontSize: '20px',
-    position: 'absolute', left:'845px', top: '320px'}}
+    fontSize: '100%',
+    position: 'relative',
+    textAlign: 'center',
+    top: 'auto'}}
     >Drag and drop files here</h1>
     <div style={{
-    fontSize: '20px',
-    position: 'absolute', left:'930px', top: '390px'}}>or</div>
+    fontSize: '90%',
+    top:'auto',
+    position: 'relative', 
+    textAlign: 'center'}}>or</div>
     <div
       style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        color: 'blue'
+        color: 'blue',
+        position: 'relative',
+        textAlign: 'center'
+        
       }}>
       <Button
         domain={domain}
@@ -28,8 +35,8 @@ const ImportFileScreen = () => {
       </Button>
     </div>
     <div style={{
-    fontSize: '15px',
-    position: 'absolute', left:'890px', bottom: '400px'}}>(csv,tsv,xls,xlsx)</div>
+    fontSize: '100%',
+    position: 'relative',  textAlign: 'center', bottom: 'auto'}}>(csv,tsv,xls,xlsx)</div>
     </>
   );
 };
