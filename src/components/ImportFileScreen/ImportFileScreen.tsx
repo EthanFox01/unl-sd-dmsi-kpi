@@ -14,6 +14,16 @@ const ImportFileScreen = () => {
   const handleInputChange = event => {
     setSelectedFile(event.target.files[0]);
     setSelectedFileName(event.target.files[0].name);
+    convertUploadFile(selectedFileName);
+  };
+
+  const convertUploadFile = (selectedFileName) => {
+    if(selectedFileName.endsWith(".csv") || selectedFileName.endsWith(".tsv")){
+
+    }
+    else if(selectedFileName.endsWith(".xlsx") || selectedFileName.endsWith(".xls")){
+      
+    }
   };
 
   return (
