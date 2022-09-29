@@ -17,7 +17,8 @@ const ImportFileScreen = () => {
   return (
     <div>
       <button type="button" onClick={handleInputButtonClick}>Browse Files</button>
-      <input type="file" 
+      <input type="file"
+        accept = {".csv"} 
         style={{display:'none'}} 
         ref={fileInput}
         onChange={handleInputChange}
