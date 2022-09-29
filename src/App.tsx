@@ -14,7 +14,7 @@ function App({
 }) {
   return (
     <Router history={history}>
-      <div>Hello World</div>
+  
       <div><ImportFileScreen/></div>
     </Router>
   );
