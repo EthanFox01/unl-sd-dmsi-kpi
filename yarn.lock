@@ -160,10 +160,51 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@wedgekit/palette@^1.0.0-tc.1":
+"@wedgekit/button@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@wedgekit/button/-/button-3.0.0.tgz#3bda1a43a9c4cbb3451e302838bb1ee30b300724"
+  integrity sha512-BFpQkVBxAtoDmwHvaFWXBZyaWlRSLaQakAfUWzhBjON5Kd1TW8E3SVB6Jry7DjQZrDtJgx8KWNRwmNvUu+5Clg==
+  dependencies:
+    "@wedgekit/color" "^4.5.3"
+    "@wedgekit/icons" "^4.0.0"
+    "@wedgekit/indicators" "^2.0.0"
+    "@wedgekit/primitives" "^4.0.0"
+
+"@wedgekit/color@4.6.0", "@wedgekit/color@^4.5.3":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@wedgekit/color/-/color-4.6.0.tgz#3871182098ee14bacb9d6066e0a337f1e699c5ae"
+  integrity sha512-2lMB2RtEzDzlliUagTf+28FwwLAErFn5J0uKj4CvFpvyCke/7WZzUNutZU4LRf1U326BwJuGZwJVHkDyDbfI1g==
+  dependencies:
+    "@wedgekit/palette" "^1.0.0"
+
+"@wedgekit/icons@^4.0.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@wedgekit/icons/-/icons-4.4.0.tgz#5aeeb4a8c20962d810c77ef681910527aac2131b"
+  integrity sha512-ArQq2pNzoBGge/TirI58lXi9v2GB9LlDINHbcGBYomO1pu6CpvLT3Ndv2sB9gPvSADMhOjuA3zIGILcV2O82dg==
+  dependencies:
+    "@wedgekit/color" "4.6.0"
+    "@wedgekit/primitives" "4.0.1"
+
+"@wedgekit/indicators@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@wedgekit/indicators/-/indicators-2.0.0.tgz#87d17f57851fc34fdca5cee5e6e122a9b477f577"
+  integrity sha512-k2gl3pG7IXOYpudFeHXjNuj16N2E+vcmSEUl3k7CPGa2JHFrOLeXKcjQQTwFjPROz3a/BT0EJy7jAV5RZJM+7w==
+  dependencies:
+    "@wedgekit/color" "^4.5.3"
+    "@wedgekit/icons" "^4.0.0"
+    "@wedgekit/primitives" "^4.0.0"
+
+"@wedgekit/palette@^1.0.0", "@wedgekit/palette@^1.0.0-tc.1":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@wedgekit/palette/-/palette-1.0.0.tgz#f7f47ce628d0e836b4e4448de857efd080c3346c"
   integrity sha512-6LUN7Qx0ZWc8QG1fUmRCA8K9nTa69XdZz7rSub6GgeUHrMFmFSI4ARmN9QFQlrKnzqnHC4a1KLnQ/GwqffmOqg==
+
+"@wedgekit/primitives@4.0.1", "@wedgekit/primitives@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@wedgekit/primitives/-/primitives-4.0.1.tgz#d8a92053ea3ea1aae88dd7da21d04506bbbbe27c"
+  integrity sha512-9y3/3WqfyANZO13hTwVq5WUsTtgatD2sxxL8tiKq6zP61Pe37TVvT08wiIa5Lpdfbh1JrQGgTLX0ADyOfdZHLg==
+  dependencies:
+    "@wedgekit/color" "^4.5.3"
 
 "@wedgekit/scripts@latest":
   version "1.2.0"
