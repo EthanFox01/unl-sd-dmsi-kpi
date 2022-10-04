@@ -15,28 +15,36 @@ const ImportFileScreen = () => {
     setSelectedFile(event.target.files[0]);
     setSelectedFileName(event.target.files[0].name);
   };
-
+ 
   return (
+
+
   <><h1 style={{
     fontSize: '100%',
     position: 'relative',
     textAlign: 'center',
-    top: 'auto'}}
+    top: 'auto',
+    bottom: 'auto',
+    marginTop: '16%'}}
     >Drag and drop files here</h1>
     <div style={{
     fontSize: '90%',
     top:'auto',
+    bottom: 'auto',
     position: 'relative', 
-    textAlign: 'center'}}>or</div>
+    textAlign: 'center',
+    margin: 'auto'}}>or</div>
     <div
       style={{
         display: 'flex',
-        alignItems: 'center',
+        // alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh',
+        height: '8vh',
         color: 'blue',
         position: 'relative',
-        textAlign: 'center'
+        // textAlign: 'center',
+        marginTop: 'auto',
+        marginBottom: 'auto'
         
       }}>
       <Button
@@ -49,11 +57,20 @@ const ImportFileScreen = () => {
         style={{display:'none'}} 
         ref={fileInput}
         onChange={handleInputChange}
-      />
+        
+      /> 
+        
+      
     </div>
     <div style={{
     fontSize: '100%',
-    position: 'relative',  textAlign: 'center', bottom: 'auto'}}>(csv,tsv,xls,xlsx)</div>
+    position: 'relative',
+    textAlign: 'center',
+    marginBottom: 'auto',
+    alignItems: 'center',
+    marginTop: '1%'
+
+    }}>(csv,tsv,xls,xlsx)</div>
     <p>{selectedFileName}</p>
     </>
   );
