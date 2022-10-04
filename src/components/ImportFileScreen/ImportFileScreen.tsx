@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '@wedgekit/button';
+import * as XLSX from 'xlsx';
 
 const ImportFileScreen = () => {
   const [domain, setDomain] = React.useState('primary');
@@ -14,15 +15,24 @@ const ImportFileScreen = () => {
   const handleInputChange = event => {
     setSelectedFile(event.target.files[0]);
     setSelectedFileName(event.target.files[0].name);
-    convertUploadFile(selectedFileName);
+    convertUploadFile(selectedFileName, selectedFile);
   };
 
-  const convertUploadFile = (selectedFileName) => {
-    if(selectedFileName.endsWith(".csv") || selectedFileName.endsWith(".tsv")){
+  const convertUploadFile = (selectedFileName, selectedFile) => {
+    if(selectedFileName.includes(".csv") || selectedFileName.includes(".tsv")){
 
     }
-    else if(selectedFileName.endsWith(".xlsx") || selectedFileName.endsWith(".xls")){
-      
+    else if(selectedFileName.includes(".xlsx") || selectedFileName.includes(".xls")){
+      const fileReader = new FileReader();
+      fileReader.onload = (selectedFile) => {
+        const data = selectedFile.target.result;
+        const workbook = XLSX.read(data, {type: "array"});
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const jsonFile = XLSX.utils.sheet_to_json(worksheet);
+        console.log(jsonFile);
+      }
+
     }
   };
 
