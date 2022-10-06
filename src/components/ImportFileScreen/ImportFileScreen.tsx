@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '@wedgekit/button';
 import * as XLSX from 'xlsx';
+import { updateLocale } from 'moment-timezone';
 
 const ImportFileScreen = () => {
   const [domain, setDomain] = React.useState('primary');
@@ -15,7 +16,9 @@ const ImportFileScreen = () => {
   const handleInputChange = event => {
     setSelectedFile(event.target.files[0]);
     setSelectedFileName(event.target.files[0].name);
-    convertUploadFile(selectedFileName, selectedFile);
+    var fileName = event.target.files[0].name;
+    var uploadedFile = event.target.files[0];
+    convertUploadFile(fileName, uploadedFile);
   };
 
   const convertUploadFile = (selectedFileName, selectedFile) => {
@@ -24,14 +27,17 @@ const ImportFileScreen = () => {
     }
     else if(selectedFileName.includes(".xlsx") || selectedFileName.includes(".xls")){
       const fileReader = new FileReader();
-      fileReader.onload = (selectedFile) => {
-        const data = selectedFile.target.result;
-        const workbook = XLSX.read(data, {type: "array"});
+      var jsonFile;
+      fileReader.onload = function(event) {
+        console.log('inside fileReader');
+        const data = event.target.result;
+        const workbook = XLSX.read(data, {type: 'binary'});
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        const jsonFile = XLSX.utils.sheet_to_json(worksheet);
-        console.log(jsonFile);
+        jsonFile = XLSX.utils.sheet_to_json(worksheet);
+        return jsonFile;
       }
+      fileReader.readAsBinaryString(selectedFile);
 
     }
   };
