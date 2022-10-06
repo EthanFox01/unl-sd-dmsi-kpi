@@ -5,6 +5,8 @@ import { History, createBrowserHistory } from 'history';
 
 import App from './App';
 import { LocalDevApp } from './components';
+import { store } from './app/store';
+import { Provider } from "react-redux"
 
 let mountId: string | undefined;
 
@@ -31,5 +33,5 @@ window['web-based-kpi-widgets_unmount'] = () => {
 
 // Local Development
 if (import.meta.env.DEV) {
-  ReactDOM.render(<LocalDevApp />, document.getElementById('root'));
+  ReactDOM.render( <Provider store={store}><LocalDevApp /></Provider>, document.getElementById('root'));
 }
