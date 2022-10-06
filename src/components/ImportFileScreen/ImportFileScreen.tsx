@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Button from '@wedgekit/button';
 import * as XLSX from 'xlsx';
+//import * as CSV from 'convert-csv-to-json';
 import { updateLocale } from 'moment-timezone';
+import * as Papa from 'papaparse';
 
 const ImportFileScreen = () => {
   const [domain, setDomain] = React.useState('primary');
@@ -23,7 +25,16 @@ const ImportFileScreen = () => {
 
   const convertUploadFile = (selectedFileName, selectedFile) => {
     if(selectedFileName.includes(".csv") || selectedFileName.includes(".tsv")){
-
+      const fileReader = new FileReader();
+      var jsonFile;
+      fileReader.onload = function(event) {
+      const data = event.target.result;
+      //console.log('data:' + data);
+        const jsonFile = Papa.parse(data);
+        //console.log('json:' + JSON.stringify(jsonFile));
+        return jsonFile;
+    }
+    fileReader.readAsBinaryString(selectedFile);
     }
     else if(selectedFileName.includes(".xlsx") || selectedFileName.includes(".xls")){
       const fileReader = new FileReader();
@@ -79,7 +90,7 @@ const ImportFileScreen = () => {
         Browse Files
       </Button>
       <input type="file" 
-        accept={'.xlsx, .xls'}
+        accept={'.csv,.tsv,.xlsx, .xls'}
         style={{display:'none'}} 
         ref={fileInput}
         onChange={handleInputChange}
