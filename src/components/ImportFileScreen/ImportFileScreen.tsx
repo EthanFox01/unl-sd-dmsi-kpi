@@ -29,7 +29,6 @@ const ImportFileScreen = () => {
       const fileReader = new FileReader();
       var jsonFile;
       fileReader.onload = function(event) {
-        console.log('inside fileReader');
         const data = event.target.result;
         const workbook = XLSX.read(data, {type: 'binary'});
         const sheetName = workbook.SheetNames[0];
