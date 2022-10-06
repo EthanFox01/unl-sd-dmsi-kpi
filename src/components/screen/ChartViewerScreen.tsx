@@ -2,53 +2,66 @@ import React from 'react'
 import Layout from '@wedgekit/layout';
 import color from '@wedgekit/color';
 import styled from 'styled-components';
-
-const HeaderContainer = styled.div`
-  background: ${color.N700};
-  color: ${color.N050};
-  padding: 8px;
-`;
+import Button from '@wedgekit/button';
 
 const ResourceContainer = styled.div`
-  background: rgb(255, 101, 23);
-  height: 100vh;
-  width: 250px
-  padding: 10px;
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 40px;
+    background: gray;
 `;
 
-const NotificationContainer = styled.div`
-  padding: 8px;
+const MainPageWrapper = styled.div`
+  margin-left: 10%;
 `;
+
+const ChartSelectWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+`;
+
+const HeaderWrapper = styled.div`
+  border-bottom: 1px solid lightgray;
+  margin-left: 5%;
+  margin-right: 5%;
+`;
+
 
 function ChartViewerScreen() {
   return (
     <Layout.App
     resource={<ResourceContainer>
-        <a href="https://www.dmsi.com/">
-            <img alt="Logo" src="https://scontent.flnk2-1.fna.fbcdn.net/v/t39.30808-6/233324057_4090718344370530_5832627897713875018_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=48qBTZtdvSAAX-DwpGp&_nc_ht=scontent.flnk2-1.fna&oh=00_AT9HtPTjWEmHMTBQSAG0uyrGP3GPzt6GVsic0nBKM5-Bgg&oe=634514AF"
-            style={{ maxWidth:"100%", height: "150px", width: '300px', marginTop:'50px', marginBottom: '20px' }}
-            />
-        </a>
-        <button style={{ maxWidth:"100%", padding: '20px', width: '300px', marginBottom: '20px' }}>Charts</button>
-            <button style={{ maxWidth:"100%", padding: '20px', width: '300px', marginBottom: '20px'}}>Import Data</button>
-            <button style={{ maxWidth:"100%",padding: '20px', width: '300px' }}>Settings</button>
+        <Button>Import Data</Button>
     </ResourceContainer>}
-    notifications={<NotificationContainer>
-            <button style={{ padding: '20px', width: '150px',  marginLeft:"1000px", marginTop:"10px", verticalAlign: "middle"}}>Download Chart</button>
-            <button style={{ padding: '20px', width: '150px', marginLeft:"-250px", marginTop:"-80px", verticalAlign: "middle"}}>Back To Charts</button>  
-            <p style={{ textAlign: 'center',  fontSize:'50px',  marginTop:"-80px"}}>Bar Chart</p>
-            
-        </NotificationContainer>}
     resourceMounted
     resourceType="drawer"
     drawerLeft
     drawerWidth="10vw"
   >
-    {() => <div style={{ padding: '40px'}}>
-        <img alt="Chart" src=" https://user-images.githubusercontent.com/33760706/115201729-46d8dc80-a113-11eb-8f18-f93214c694bd.png"
-            style={{ marginLeft:"150px",  marginRight:"100px", marginTop:"100px", marginBottom:"100px", height:"650px"}}
-            />
-        </div>}
+    {() => <MainPageWrapper>
+      <h1>Bar Chart</h1>
+      <Layout.Section area="chart">
+        <ChartSelectWrapper>
+          <HeaderWrapper>
+            <h3>Pie Chart</h3>
+            <h1>Title</h1>
+            <h4>Secondary text</h4>
+          </HeaderWrapper>
+          <br></br>
+          <img 
+            alt="Pie Chart" 
+            src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
+          />
+        </ChartSelectWrapper>        
+      </Layout.Section>
+    </MainPageWrapper>
+    }
   </Layout.App>
   )
 }
