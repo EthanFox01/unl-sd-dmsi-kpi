@@ -11,3 +11,4 @@ __generated__/
 *.xlsx
 *.csv
 *.local
+*.log
