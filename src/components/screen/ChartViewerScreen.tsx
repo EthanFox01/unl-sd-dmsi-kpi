@@ -1,10 +1,9 @@
 import React from 'react'
 import Layout from '@wedgekit/layout';
-import color from '@wedgekit/color';
 import styled from 'styled-components';
 import Button from '@wedgekit/button';
 
-const ResourceContainer = styled.div`
+const SidebarDiv = styled.div`
     height: 100%;
     width: 150px;
     position: absolute;
@@ -32,34 +31,48 @@ const HeaderWrapper = styled.div`
   margin-right: 5%;
 `;
 
+const handleImportDataClick = () => {
+  alert("This should be the file upload screen");
+}
 
 function ChartViewerScreen() {
   return (
     <Layout.App
-    resource={<ResourceContainer>
-        <Button>Import Data</Button>
-    </ResourceContainer>}
+    resource={<SidebarDiv>
+        <Button onClick={handleImportDataClick}>Import Data</Button>
+    </SidebarDiv>}
     resourceMounted
     resourceType="drawer"
     drawerLeft
     drawerWidth="10vw"
   >
     {() => <MainPageWrapper>
-      <h1>Bar Chart</h1>
-      <Layout.Section area="chart">
-        <ChartSelectWrapper>
-          <HeaderWrapper>
-            <h3>Pie Chart</h3>
-            <h1>Title</h1>
-            <h4>Secondary text</h4>
-          </HeaderWrapper>
-          <br></br>
-          <img 
-            alt="Pie Chart" 
-            src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
-          />
-        </ChartSelectWrapper>        
-      </Layout.Section>
+      <h1>Chart</h1>
+      <Layout.Grid
+      areas={['chart']}
+      columns={[]}
+      rows={['70vh']}
+      rowsLg={['60vh']}
+      areasMd={['chart']}
+      rowsMd={['85vh']}
+      areasSm={['chart']}
+      rowsSm={['70vh']}
+      >
+        <Layout.Section area="chart">
+          <ChartSelectWrapper>
+            <HeaderWrapper>
+              <h3>Pie Chart</h3>
+              <h1>Title</h1>
+              <h4>Secondary text</h4>
+            </HeaderWrapper>
+            <br></br>
+            <img 
+              alt="Pie Chart" 
+              src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
+            />
+          </ChartSelectWrapper>        
+        </Layout.Section>
+      </Layout.Grid>
     </MainPageWrapper>
     }
   </Layout.App>
