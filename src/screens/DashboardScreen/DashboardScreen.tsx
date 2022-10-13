@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 import Layout from '@wedgekit/layout';
 import Button from "@wedgekit/button";
@@ -9,21 +10,28 @@ import ChartSelectWrapper from './styles/ChartSelectWrapper';
 import MainPageWrapper from './styles/MainPageWrapper';
 
 const DashboardScreen = () => {
+    const history = useHistory();
 
     const handleChartClick = () => {
-        alert("This should be the chart viewer screen");
+        history.push("/viewer");
     }
 
     const handleImportDataClick = () => {
-        alert("This should be the file upload screen");
+        history.push("/import");
+    }
+
+    const handleHomeButtonClick = () => {
+        history.push("/");
     }
 
     return (
-        <Layout.App 
+        <Layout.App
             // header={<HeaderContainer>Header</HeaderContainer>}
             resource={<SidebarDiv>
-                        <Button onClick={handleImportDataClick}>Import Data</Button>
-                    </SidebarDiv>}
+                <Button onClick={handleHomeButtonClick}>Home</Button>
+                <br></br>
+                <Button onClick={handleImportDataClick}>Import Data</Button>
+            </SidebarDiv>}
             resourceMounted
             resourceType="drawer"
             drawerLeft
@@ -50,7 +58,7 @@ const DashboardScreen = () => {
                                 <h4>Secondary text</h4>
                             </HeaderWrapper>
                             <br></br>
-                            <img 
+                            <img
                                 src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
                                 alt="Pie Chart"
                                 style={{ width: '100%' }}
@@ -65,7 +73,7 @@ const DashboardScreen = () => {
                                 <h4>Secondary text</h4>
                             </HeaderWrapper>
                             <br></br>
-                            <img 
+                            <img
                                 src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
                                 alt="Pie Chart"
                                 style={{ width: '100%' }}
@@ -80,7 +88,7 @@ const DashboardScreen = () => {
                                 <h4>Secondary text</h4>
                             </HeaderWrapper>
                             <br></br>
-                            <img 
+                            <img
                                 src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
                                 alt="Pie Chart"
                                 style={{ width: '100%' }}

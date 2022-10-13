@@ -13,16 +13,20 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@wedgekit/button": "^3.0.0",
+    "@wedgekit/card": "^3.0.0",
     "@wedgekit/illustrations": "^3.0.0",
     "@wedgekit/input": "^2.0.5",
     "@wedgekit/layout": "^2.1.1",
+    "@wedgekit/primitives": "^4.0.1",
     "moment-timezone": "^0.5.37",
     "papaparse": "^5.3.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-native-fs": "^2.20.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "5.3.0",
-    "styled-components": "4.3.1"
+    "styled-components": "4.3.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/react": "17.0.3",
