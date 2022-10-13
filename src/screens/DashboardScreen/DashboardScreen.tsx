@@ -20,10 +20,16 @@ const DashboardScreen = () => {
         history.push("/import");
     }
 
+    const handleHomeButtonClick = () => {
+        history.push("/");
+    }
+
     return (
         <Layout.App
             // header={<HeaderContainer>Header</HeaderContainer>}
             resource={<SidebarDiv>
+                <Button onClick={handleHomeButtonClick}>Home</Button>
+                <br></br>
                 <Button onClick={handleImportDataClick}>Import Data</Button>
             </SidebarDiv>}
             resourceMounted
