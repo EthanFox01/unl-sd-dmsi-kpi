@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { 
-    Link, 
-    Route, 
-    useParams, 
-    useRouteMatch 
-} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import Layout from '@wedgekit/layout';
 import Button from "@wedgekit/button";
@@ -15,24 +10,21 @@ import ChartSelectWrapper from './styles/ChartSelectWrapper';
 import MainPageWrapper from './styles/MainPageWrapper';
 
 const DashboardScreen = () => {
-
-    // const { url, path } = useRouteMatch();
+    const history = useHistory();
 
     const handleChartClick = () => {
-        alert("This should be the chart viewer screen");
+        history.push("/viewer");
     }
 
     const handleImportDataClick = () => {
-        // alert("This should be the file upload screen");
+        history.push("/import");
     }
 
     return (
         <Layout.App
             // header={<HeaderContainer>Header</HeaderContainer>}
             resource={<SidebarDiv>
-                <Link to="/import">
-                    <Button onClick={handleImportDataClick}>Import Data</Button>
-                </Link>
+                <Button onClick={handleImportDataClick}>Import Data</Button>
             </SidebarDiv>}
             resourceMounted
             resourceType="drawer"

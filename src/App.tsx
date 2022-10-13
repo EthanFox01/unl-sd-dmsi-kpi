@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router, 
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 import { History } from 'history';
 import ImportFileScreen from "./components/ImportFileScreen";
@@ -22,7 +21,6 @@ function App({
 
   return (
     <Router history={history}>
-    
       <Switch>
         <Route path="/import" component={ImportFileScreen} />
         <Route path="/viewer" component={ChartViewerScreen}/>
