@@ -7,7 +7,7 @@ import {
 import { History } from 'history';
 import ImportFileScreen from "./components/ImportFileScreen";
 import { DashboardScreen } from './screens/DashboardScreen';
-import ChartViewerScreen from './components/screen/ChartViewerScreen';
+import ChartViewerScreen from './screens/ChartViewerScreen';
 
 import { ForceSessionData } from './@types/force';
 
