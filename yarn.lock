@@ -208,6 +208,14 @@
     "@wedgekit/indicators" "^2.0.0"
     "@wedgekit/primitives" "^4.0.0"
 
+"@wedgekit/card@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@wedgekit/card/-/card-3.0.0.tgz#03191cf61d78c1a7f516850cf02843270f5735a8"
+  integrity sha512-T06yspN2n3Zp82yuS0G1o8fUUdpRru8mertxMDN4AMJpLsHwuPmWsMngsKDIDoqFljkSFCqp3yo+SMfk2izgzQ==
+  dependencies:
+    "@wedgekit/hooks" "^4.0.0"
+    "@wedgekit/primitives" "^4.0.0"
+
 "@wedgekit/color@4.6.0", "@wedgekit/color@^4.5.3":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@wedgekit/color/-/color-4.6.0.tgz#3871182098ee14bacb9d6066e0a337f1e699c5ae"
@@ -219,6 +227,11 @@
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@wedgekit/hooks/-/hooks-4.1.0.tgz#d63f20ad322097843b959f074ceb44ff143cc15a"
   integrity sha512-+B33e4+fO5xACadvGFEjkz02hbFMa2TTY1cgXbumxQR0ffIAwQyjIvJnAa4JivcHRQtykzEdFP+6Hm7f3LRLrQ==
+
+"@wedgekit/hooks@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@wedgekit/hooks/-/hooks-4.1.1.tgz#6d117425d53f52a9253adef907fadd087d6bfec4"
+  integrity sha512-nA8PFycce0mSTm0hCFuifiRraxv0g6bFagPYoyNWSEXDYmDXhBCbUVjrRZUhym/cyX7qtx/xJA1ehx4UrgN3aQ==
 
 "@wedgekit/icons@^4.0.0":
   version "4.4.0"
@@ -300,7 +313,7 @@
     react-focus-on "^3.5.4"
     react-merge-refs "^1.1.0"
 
-"@wedgekit/primitives@4.0.1", "@wedgekit/primitives@^4.0.0":
+"@wedgekit/primitives@4.0.1", "@wedgekit/primitives@^4.0.0", "@wedgekit/primitives@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@wedgekit/primitives/-/primitives-4.0.1.tgz#d8a92053ea3ea1aae88dd7da21d04506bbbbe27c"
   integrity sha512-9y3/3WqfyANZO13hTwVq5WUsTtgatD2sxxL8tiKq6zP61Pe37TVvT08wiIa5Lpdfbh1JrQGgTLX0ADyOfdZHLg==
@@ -536,6 +549,11 @@ balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
+
+base-64@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/base-64/-/base-64-0.1.0.tgz#780a99c84e7d600260361511c4877613bf24f6bb"
+  integrity sha512-Y5gU45svrR5tI2Vt/X9GPd3L0HNIKzGu202EjxrXMpuc2V2CiKgemAbUUsqYmZJvPtCXoUKjNZwBJzsNScUbXA==
 
 base64-js@^1.3.1:
   version "1.5.1"
@@ -2293,6 +2311,14 @@ react-merge-refs@^1.1.0:
   resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
   integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
+react-native-fs@^2.20.0:
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/react-native-fs/-/react-native-fs-2.20.0.tgz#05a9362b473bfc0910772c0acbb73a78dbc810f6"
+  integrity sha512-VkTBzs7fIDUiy/XajOSNk0XazFE9l+QlMAce7lGuebZcag5CnjszB+u4BdqzwaQOdcYb5wsJIsqq4kxInIRpJQ==
+  dependencies:
+    base-64 "^0.1.0"
+    utf8 "^3.0.0"
+
 react-number-format@^4.7.3:
   version "4.9.4"
   resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.9.4.tgz#013ae526000e676e491763ce14da66fb330a9bd8"
@@ -2942,6 +2968,11 @@ use-sync-external-store@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
+
+utf8@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/utf8/-/utf8-3.0.0.tgz#f052eed1364d696e769ef058b183df88c87f69d1"
+  integrity sha512-E8VjFIQ/TyQgp+TZfS6l8yp/xWppSAHzidGiRrqe4bK4XP9pTRyKFgGJpO3SN7zdX4DeomTrwaseCHovfpFcqQ==
 
 util-deprecate@^1.0.1:
   version "1.0.2"
