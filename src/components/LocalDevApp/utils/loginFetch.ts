@@ -1,5 +1,5 @@
 const loginFetch = (username: string, password: string) =>
-  fetch('/graphql', {
+  fetch('https://develop.agility.dmsi.io/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

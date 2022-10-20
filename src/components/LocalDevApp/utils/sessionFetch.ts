@@ -1,5 +1,5 @@
 const sessionFetch = (initialBranch: string) =>
-  fetch('/graphql', {
+  fetch('https://develop.agility.dmsi.io/graphql', {
     method: 'POST',
     headers: {
       authorization: `dmsi Branch=${initialBranch}`,
