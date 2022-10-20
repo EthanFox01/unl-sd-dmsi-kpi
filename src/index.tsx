@@ -32,6 +32,4 @@ window['web-based-kpi-widgets_unmount'] = () => {
 };
 
 // Local Development
-if (import.meta.env.DEV) {
   ReactDOM.render( <Provider store={store}><LocalDevApp /></Provider>, document.getElementById('root'));
-}
