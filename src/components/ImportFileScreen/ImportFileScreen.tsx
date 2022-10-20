@@ -11,6 +11,10 @@ import * as XLSX from 'xlsx';
 import { updateLocale } from 'moment-timezone';
 import { usePapaParse } from 'react-papaparse';
 
+import { importFile, getFile } from '../../feature/importSlice';
+import { store, RootState} from '../../app/store';
+import { useSelector, useDispatch } from 'react-redux';
+
 const ImportFileScreen = () => {
   const [domain, setDomain] = React.useState('primary');
   const fileInput = React.useRef(null);
@@ -19,21 +23,23 @@ const ImportFileScreen = () => {
   const returnToScreen = () => {
     history.push("/");;
 }
-  
 
-  const handleInputButtonClick = () => {
-    fileInput.current.click();
-  };
-  const history = useHistory();
-  const InstallerWrapper = styled.div`
-  display: flexbox;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  margin: 8px 32px;
-  
+const handleInputButtonClick = () => {
+  fileInput.current.click();
+};
+const history = useHistory();
+const InstallerWrapper = styled.div`
+display: flexbox;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding: 20px;
+margin: 8px 32px;
+
 `;
+const test = useSelector((state: RootState) => state.import.value);
+const dispatch = useDispatch();
+
   const handleInputChange = event => {
     setSelectedFile(event.target.files[0]);
     setSelectedFileName(event.target.files[0].name);
@@ -42,7 +48,6 @@ const ImportFileScreen = () => {
     convertUploadFile(fileName, uploadedFile);
   };
   
-
   const convertUploadFile = (selectedFileName, selectedFile) => {
     if(selectedFileName.includes(".csv") || selectedFileName.includes(".tsv")){
       const fileReader = new FileReader();
@@ -58,8 +63,9 @@ const ImportFileScreen = () => {
           console.log('---------------------------');
           console.log(parsedFileResult.data);
           console.log('---------------------------');
-          jsonFile = parsedFileResult.data;
-        return jsonFile;
+          jsonFile = parsedFileResult.data
+          var jsonData = JSON.stringify(jsonFile);
+          dispatch(importFile(jsonFile));
         },
       });    
     }
@@ -74,9 +80,10 @@ const ImportFileScreen = () => {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         jsonFile = XLSX.utils.sheet_to_json(worksheet);
+        var jsonData = JSON.stringify(jsonFile);
         console.log("jsonFile: ");
         console.log(jsonFile);    
-        return jsonFile;
+        dispatch(importFile(jsonFile));
       }
       fileReader.readAsBinaryString(selectedFile);
 
@@ -88,7 +95,7 @@ const ImportFileScreen = () => {
 
   <>
   
-  
+
   <div style={{
     boxSizing: "border-box",
     borderBlockColor: 'black',
@@ -162,6 +169,7 @@ const ImportFileScreen = () => {
     {selectedFile && (<Card>
       <InstallerWrapper>
         <Text><p>{selectedFileName}</p></Text>
+        <Text><p>{test}</p></Text>
       </InstallerWrapper>
     </Card>
     )}
@@ -181,44 +189,4 @@ const ImportFileScreen = () => {
    );
   };
 
-  function firstTwoNumericalColumns (keyArray, valueArrayByRow) : Map<String, number> {
-    var numericalColumn1 = -1;
-    var numericalColumn2 = -1;
-    var numericalColumnMap: Map<String, any> = new Map<String, any>();
-
-    for(let row = 0; row < valueArrayByRow.length; row++){
-        for(let column = 0; column < valueArrayByRow[0].length; column++){
-            if(typeof valueArrayByRow[row][column] === "number"){
-                if(numericalColumn1 == -1){
-                    numericalColumn1 = column;
-                }
-                else{
-                    numericalColumn2 = column;
-                }
-            }
-            if(numericalColumn1 != -1 && numericalColumn2 != -1){
-              break;
-            }
-        }
-        if(numericalColumn1 != -1 && numericalColumn2 != -1){
-          break;
-        }
-    }
-    numericalColumnMap.set(keyArray[numericalColumn1], numericalColumnValues(valueArrayByRow, numericalColumn1));
-    numericalColumnMap.set(keyArray[numericalColumn2], numericalColumnValues(valueArrayByRow, numericalColumn2));
-
-    console.log("numericalColumnMap");
-    console.log(numericalColumnMap);
-    return numericalColumnMap;
-}
-
-function numericalColumnValues(valueArrayByRow, numericalColumnNumber) : Array<any>{
-    var columnValues: Array<any> = [];
-    for(let i = 0; i < valueArrayByRow.length; i++){
-        columnValues.push(valueArrayByRow[i][numericalColumnNumber]);
-       }
-    console.log("column values: ");
-    console.log(columnValues);
-    return columnValues;
-}
 export default ImportFileScreen;

@@ -17,5 +17,8 @@ export const importSlice = createSlice({
     },
 });
 
+
+export const getFile = state => state.value;
+
 export const { importFile } = importSlice.actions;
 export default importSlice.reducer;
