@@ -37,7 +37,7 @@ padding: 20px;
 margin: 8px 32px;
 
 `;
-const test = useSelector((state: RootState) => state.import.value);
+//const test = useSelector((state: RootState) => state.import.value);
 const dispatch = useDispatch();
 
   const handleInputChange = event => {
@@ -65,7 +65,7 @@ const dispatch = useDispatch();
           console.log('---------------------------');
           jsonFile = parsedFileResult.data
           var jsonData = JSON.stringify(jsonFile);
-          dispatch(importFile(jsonFile));
+          dispatch(importFile(jsonData));
         },
       });    
     }
@@ -83,7 +83,7 @@ const dispatch = useDispatch();
         var jsonData = JSON.stringify(jsonFile);
         console.log("jsonFile: ");
         console.log(jsonFile);    
-        dispatch(importFile(jsonFile));
+        dispatch(importFile(jsonData));
       }
       fileReader.readAsBinaryString(selectedFile);
 
@@ -169,7 +169,6 @@ const dispatch = useDispatch();
     {selectedFile && (<Card>
       <InstallerWrapper>
         <Text><p>{selectedFileName}</p></Text>
-        <Text><p>{test}</p></Text>
       </InstallerWrapper>
     </Card>
     )}
