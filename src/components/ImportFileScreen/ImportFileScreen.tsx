@@ -37,7 +37,7 @@ padding: 20px;
 margin: 8px 32px;
 
 `;
-const test = useSelector((state: RootState) => state.import.value);
+//const test = useSelector((state: RootState) => state.import.value);
 const dispatch = useDispatch();
 
 
