@@ -11,6 +11,10 @@ import * as XLSX from 'xlsx';
 import { updateLocale } from 'moment-timezone';
 import { usePapaParse } from 'react-papaparse';
 
+import { importFile, getFile } from '../../feature/importSlice';
+import { store, RootState} from '../../app/store';
+import { useSelector, useDispatch } from 'react-redux';
+
 const ImportFileScreen = () => {
   const [domain, setDomain] = React.useState('primary');
   const fileInput = React.useRef(null);
@@ -19,21 +23,25 @@ const ImportFileScreen = () => {
   const returnToScreen = () => {
     history.push("/");;
 }
-  
 
-  const handleInputButtonClick = () => {
-    fileInput.current.click();
-  };
-  const history = useHistory();
-  const InstallerWrapper = styled.div`
-  display: flexbox;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  margin: 8px 32px;
-  
+const handleInputButtonClick = () => {
+  fileInput.current.click();
+};
+const history = useHistory();
+const InstallerWrapper = styled.div`
+display: flexbox;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+padding: 20px;
+margin: 8px 32px;
+
 `;
+const test = useSelector((state: RootState) => state.import.value);
+const dispatch = useDispatch();
+
+
+
   const handleInputChange = event => {
     setSelectedFile(event.target.files[0]);
     setSelectedFileName(event.target.files[0].name);
@@ -58,8 +66,9 @@ const ImportFileScreen = () => {
           console.log('---------------------------');
           console.log(parsedFileResult.data);
           console.log('---------------------------');
-          jsonFile = parsedFileResult.data;
-        return jsonFile;
+          jsonFile = parsedFileResult.data
+          var jsonData = JSON.stringify(jsonFile);
+          dispatch(importFile(jsonData));
         },
       });    
     }
@@ -74,9 +83,10 @@ const ImportFileScreen = () => {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         jsonFile = XLSX.utils.sheet_to_json(worksheet);
+        var jsonData = JSON.stringify(jsonFile);
         console.log("jsonFile: ");
         console.log(jsonFile);    
-        return jsonFile;
+        dispatch(importFile(jsonData));
       }
       fileReader.readAsBinaryString(selectedFile);
 
