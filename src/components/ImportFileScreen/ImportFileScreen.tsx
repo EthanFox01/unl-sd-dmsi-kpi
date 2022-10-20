@@ -37,10 +37,8 @@ padding: 20px;
 margin: 8px 32px;
 
 `;
-//const test = useSelector((state: RootState) => state.import.value);
+const test = useSelector((state: RootState) => state.import.value);
 const dispatch = useDispatch();
-
-
 
   const handleInputChange = event => {
     setSelectedFile(event.target.files[0]);
@@ -50,7 +48,6 @@ const dispatch = useDispatch();
     convertUploadFile(fileName, uploadedFile);
   };
   
-
   const convertUploadFile = (selectedFileName, selectedFile) => {
     if(selectedFileName.includes(".csv") || selectedFileName.includes(".tsv")){
       const fileReader = new FileReader();
@@ -68,7 +65,7 @@ const dispatch = useDispatch();
           console.log('---------------------------');
           jsonFile = parsedFileResult.data
           var jsonData = JSON.stringify(jsonFile);
-          dispatch(importFile(jsonData));
+          dispatch(importFile(jsonFile));
         },
       });    
     }
@@ -86,7 +83,7 @@ const dispatch = useDispatch();
         var jsonData = JSON.stringify(jsonFile);
         console.log("jsonFile: ");
         console.log(jsonFile);    
-        dispatch(importFile(jsonData));
+        dispatch(importFile(jsonFile));
       }
       fileReader.readAsBinaryString(selectedFile);
 
@@ -98,7 +95,7 @@ const dispatch = useDispatch();
 
   <>
   
-  
+
   <div style={{
     boxSizing: "border-box",
     borderBlockColor: 'black',
@@ -172,6 +169,7 @@ const dispatch = useDispatch();
     {selectedFile && (<Card>
       <InstallerWrapper>
         <Text><p>{selectedFileName}</p></Text>
+        <Text><p>{test}</p></Text>
       </InstallerWrapper>
     </Card>
     )}
