@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import Layout from '@wedgekit/layout';
 import Button from "@wedgekit/button";
 
+import { LineChart } from '../../charts'
+
 import SidebarDiv from './styles/SidebarDiv'
 import HeaderWrapper from './styles/HeaderWrapper'
 import ChartSelectWrapper from './styles/ChartSelectWrapper';
@@ -17,11 +19,11 @@ const DashboardScreen = () => {
     }
 
     const handleImportDataClick = () => {
-        history.push("/import");
+        history.push("/");
     }
 
     const handleHomeButtonClick = () => {
-        history.push("/");
+        history.push("/dashboard");
     }
 
     return (
@@ -58,11 +60,7 @@ const DashboardScreen = () => {
                                 <h4>Secondary text</h4>
                             </HeaderWrapper>
                             <br></br>
-                            <img
-                                src="https://www.tibco.com/sites/tibco/files/media_entity/2022-01/PieChart-01.svg"
-                                alt="Pie Chart"
-                                style={{ width: '100%' }}
-                            />
+                            <LineChart/>
                         </ChartSelectWrapper>
                     </Layout.Section>
                     <Layout.Section area="chart2">

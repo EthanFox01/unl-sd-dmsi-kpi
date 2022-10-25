@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface importState {
-    value: String
+    value: string
 }
 const initialState : importState = {
     value: "",
@@ -11,7 +11,7 @@ export const importSlice = createSlice({
     name: "import",
     initialState,
     reducers:  {
-        importFile: (state, action: PayloadAction<String>) => {
+        importFile: (state, action: PayloadAction<string>) => {
             state.value=action.payload;
         },
     },

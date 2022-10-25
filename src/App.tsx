@@ -22,9 +22,9 @@ function App({
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/import" component={ImportFileScreen} />
         <Route path="/viewer" component={ChartViewerScreen}/>
-        <Route path="/" component={DashboardScreen} />
+        <Route path="/dashboard" component={DashboardScreen} />
+        <Route path="/" component={ImportFileScreen} />
       </Switch>
     </Router>
   );

@@ -21,7 +21,7 @@ const ImportFileScreen = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [selectedFileName, setSelectedFileName] = useState();
   const returnToScreen = () => {
-    history.push("/");;
+    history.push("/dashboard");;
 }
 
 const handleInputButtonClick = () => {

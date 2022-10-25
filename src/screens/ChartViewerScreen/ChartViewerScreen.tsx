@@ -15,11 +15,11 @@ const ChartViewerScreen = () => {
   const history = useHistory();
 
   const handleImportDataClick = () => {
-    history.push("/import");
+    history.push("/");
   }
 
   const handleHomeButtonClick = () => {
-    history.push("/");
+    history.push("/dashboard");
 }
 
   return (
