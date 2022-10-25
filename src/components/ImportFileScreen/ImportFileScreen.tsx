@@ -67,6 +67,7 @@ const dispatch = useDispatch();
           var jsonData = JSON.stringify(jsonFile);
           dispatch(importFile(jsonData));
         },
+        dynamicTyping: true
       });    
     }
     fileReader.readAsBinaryString(selectedFile);
